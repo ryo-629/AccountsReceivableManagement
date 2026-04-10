@@ -1,0 +1,2 @@
+# AccountsReceivableManagement
+未収管理システム
