@@ -34,9 +34,6 @@
         <a href="#" class="back-link" onclick="showIndex()">← 顧客リストへ戻る</a>
         
         <div class="input-group">
-            <label>表示月を選択</label>
-            <input type="month" id="view-month" onchange="renderMishuList()">
-            <hr>
             <label>日付</label>
             <input type="date" id="mishu-date">
             <label>種別</label>
@@ -47,6 +44,12 @@
             <label>金額</label>
             <input type="number" id="mishu-amount" placeholder="金額を入力">
             <button onclick="addMishuData()">データを登録</button>
+
+        </div class="input-group">
+            <label>表示月を選択</label>
+            <input type="month" id="view-month" onchange="renderMishuList()">
+        <div>
+
         </div>
 
         <div class="tab-menu">
