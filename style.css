@@ -13,17 +13,25 @@ header { background-color: #fff; padding: 15px; text-align: center; border-botto
 .input-group { background: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 20px; }
 label { display: block; font-size: 14px; color: #666; margin-top: 10px; }
 
-/* iPhoneの入力欄のデフォルトスタイルを調整 */
+/* 全ての入力欄（日付・金額・セレクトボックス）の幅と高さを統一 */
 input, select { 
     width: 100%; 
     padding: 12px; 
     margin: 5px 0; 
     border: 1px solid #ccc; 
     border-radius: 4px; 
-    box-sizing: border-box; 
+    box-sizing: border-box; /* パディングを含めて幅100%にする設定 */
     font-size: 16px; 
-    -webkit-appearance: none; /* デフォルトの影などを消す */
+    display: block; /* 確実に一列を占領させる */
+    -webkit-appearance: none; /* iPhoneのデフォルトスタイルを消す */
     appearance: none;
+    background-color: #fff;
+}
+
+/* iPhoneの日付・月選択欄で高さが崩れるのを防ぐ */
+input[type="date"],
+input[type="month"] {
+    min-height: 46px; /* 他の入力欄と見た目の高さを合わせる */
 }
 
 button { width: 100%; padding: 12px; background-color: #007bff; color: white; border: none; border-radius: 4px; font-size: 16px; margin-top: 10px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
@@ -48,14 +56,13 @@ button { width: 100%; padding: 12px; background-color: #007bff; color: white; bo
 .mishu-table th, .mishu-table td { 
     border: 1px solid #eee; 
     padding: 10px 2px; 
-    vertical-align: middle; /* 上下中央 */
-    text-align: center;     /* 左右中央 */
+    vertical-align: middle; 
+    text-align: center; 
     overflow: hidden;
     word-break: break-all;
 }
 .mishu-table thead { background: #f8f9fa; }
 
-/* 状況（チェックボックス）列の幅を固定 */
 .mishu-table th:nth-child(1), 
 .mishu-table td:nth-child(1) {
     width: 50px;
@@ -63,7 +70,7 @@ button { width: 100%; padding: 12px; background-color: #007bff; color: white; bo
 
 /* チェックボックス自体の調整 */
 input[type="checkbox"] { 
-    -webkit-appearance: checkbox; /* iPhoneでチェックボックスとして表示 */
+    -webkit-appearance: checkbox; 
     appearance: checkbox;
     width: 22px; 
     height: 22px; 
@@ -71,7 +78,6 @@ input[type="checkbox"] {
     cursor: pointer;
     vertical-align: middle;
     display: inline-block;
-    /* transform: scale(1.5); はズレの原因になりやすいためサイズ指定(width/height)に変更 */
 }
 
 /* 回収済み行の背景 */
